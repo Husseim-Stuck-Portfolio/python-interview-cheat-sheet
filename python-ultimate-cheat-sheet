@@ -17,6 +17,8 @@ del | Delete object/reference | del my_list[0]
 None | Null/absence of value | result = None
 assert | Debug assertion (raises AssertionError if False) | assert x > 0, "x must be positive"
 breakpoint | Enter debugger (pdb) | breakpoint()
+
+
 2. Operators
 
 query | short explanation max one line | syntax example how to use it
@@ -56,6 +58,8 @@ not in neg membership | Value not in container | if "z" not in "abc":
 >> right shift | Shift bits right | 8 >> 2 → 2
 := walrus operator | Assign within expression (PEP 572) | if (n := len(s)) > 5:
 ternary conditional | Inline if-else expression | value = x if x > 0 else 0
+
+
 3. Data Types & Conversion
 
 query | short explanation max one line | syntax example how to use it
@@ -84,6 +88,8 @@ chr() | Unicode code point to character | chr(97) → 'a'
 ord() | Character to Unicode code point | ord('a') → 97
 bytes() | Create bytes object | bytes("hello", "utf-8")
 bytearray() | Create bytearray object | bytearray(5)
+
+
 4. Strings & Formatting
 
 query | short explanation max one line | syntax example how to use it
@@ -119,6 +125,8 @@ string slicing | Extract substring by index | s[1:4] or s[::-1]
 .isspace() | All characters are whitespace | "  ".isspace()
 .zfill() | Pad with zeros on left | "42".zfill(5) → "00042"
 .ljust() / .rjust() | Left/right justify with padding | "hi".ljust(5, "-")
+
+
 5. Data Structures (Collections)
 
 query | short explanation max one line | syntax example how to use it
@@ -165,6 +173,8 @@ range() | Sequence of numbers | range(0, 10, 2)
 enumerate() | Index-value pairs from iterable | enumerate(["a", "b"], start=1)
 zip() | Aggregate elements from iterables | zip([1,2], ["a","b"])
 zip() with strict | Error if lengths differ (3.10+) | zip(a, b, strict=True)
+
+
 6. Control Flow
 
 query | short explanation max one line | syntax example how to use it
@@ -187,6 +197,8 @@ continue | Skip to next iteration | for x in lst: if x == 0: continue
 pass | Empty loop body placeholder | for x in lst: pass
 for-else | Execute if loop didn’t break | for x in lst: ... else: ...
 while-else | Execute if while didn’t break | while cond: ... else: ...
+
+
 7. Comprehensions
 
 query | short explanation max one line | syntax example how to use it
@@ -199,6 +211,8 @@ set comprehension | Build set from expression | {x % 3 for x in range(10)}
 generator expression | Lazy evaluation iterable | (x**2 for x in range(1000000))
 nested comprehension | Multi-level iteration | [(x, y) for x in range(3) for y in range(3)]
 walrus in comprehension | Assign and filter in one | [y for x in data if (y := func(x)) > 0]
+
+
 8. Functions
 
 query | short explanation max one line | syntax example how to use it
@@ -221,6 +235,8 @@ nested function | Function inside function | def outer(): def inner(): ...
 closure | Function remembers enclosing scope | def make_adder(n): return lambda x: x+n
 functools.partial | Fix some function arguments | from functools import partial; base2 = partial(int, base=2)
 @overload | Multiple type signatures (typing) | @overload def f(x: int) -> int: ...
+
+
 9. Classes & OOP
 
 query | short explanation max one line | syntax example how to use it
@@ -255,6 +271,8 @@ ClassVar | Class-level variable in dataclass | MY_STATIC: ClassVar[int] = 42
 __slots__ | Restrict attributes, save memory | __slots__ = ("x", "y")
 abstract base class | Enforce method implementation | from abc import ABC, abstractmethod
 metaclass | Class of a class | class Meta(type): ...
+
+
 10. Error Handling
 
 query | short explanation max one line | syntax example how to use it
@@ -269,6 +287,8 @@ custom exception | User-defined exception class | class ValidationError(Exceptio
 ExceptionGroup | Group multiple exceptions (3.11+) | raise ExceptionGroup("group", [e1, e2])
 except* | Catch from ExceptionGroup (3.11+) | except* ValueError: ...
 warnings.warn | Non-fatal warning | import warnings; warnings.warn("deprecated")
+
+
 11. File I/O
 
 query | short explanation max one line | syntax example how to use it
@@ -291,6 +311,8 @@ json.dumps() | Serialize to JSON string | s = json.dumps(data)
 csv.reader() | Read CSV file | import csv; rows = list(csv.reader(f))
 csv.DictReader() | Read CSV as dictionaries | rows = list(csv.DictReader(f))
 csv.writer() | Write CSV file | w = csv.writer(f); w.writerow([1, 2])
+
+
 12. Built-in Functions (Essential)
 
 query | short explanation max one line | syntax example how to use it
@@ -326,6 +348,8 @@ round() | Round to nearest (ties to even) | round(2.5) → 2
 sorted() | Return sorted list | sorted([3, 1, 2], reverse=True)
 sum() | Sum of iterable | sum([1, 2, 3])
 zip() | Pairwise iteration | list(zip(a, b))
+
+
 13. Modules & Imports
 
 query | short explanation max one line | syntax example how to use it
@@ -340,6 +364,8 @@ __all__ | Control from module import * | __all__ = ["foo", "bar"]
 sys.path | List of module search paths | import sys; print(sys.path)
 dir() | List names in module/scope | dir(math)
 __import__() | Programmatic import | mod = __import__("os")
+
+
 14. Iterators & Generators
 
 query | short explanation max one line | syntax example how to use it
@@ -357,6 +383,8 @@ itertools.groupby | Group consecutive equal items | itertools.groupby(sorted(dat
 itertools.permutations | All r-length permutations | itertools.permutations("ABC", 2)
 itertools.combinations | All r-length combinations | itertools.combinations("ABC", 2)
 reversed() | Reverse iterator | reversed([1, 2, 3])
+
+
 15. Context Managers
 
 query | short explanation max one line | syntax example how to use it
@@ -367,6 +395,8 @@ __exit__ | Exit context (teardown) | def __exit__(self, exc_type, exc, tb): ...
 @contextmanager | Decorator to build context manager | @contextmanager def managed(): ...
 contextlib.suppress | Ignore specific exceptions | with suppress(FileNotFoundError): ...
 contextlib.closing | Ensure .close() is called | with closing(urllib.urlopen(url)) as page:
+
+
 16. Type Hints & Typing
 
 query | short explanation max one line | syntax example how to use it
@@ -399,6 +429,8 @@ generic class (3.12+) | Type params on class | class Box[T]: ...
 @overload | Multiple type signatures | @overload def process(x: int) -> int: ...
 reveal_type() | Debug inferred type (checker) | reveal_type(x)
 @deprecated (3.13+) | Mark deprecated functions | from warnings import deprecated; @deprecated("use new()")
+
+
 17. Decorators & Functional
 
 query | short explanation max one line | syntax example how to use it
@@ -411,6 +443,8 @@ functools.partial | Pre-fill function arguments | base2 = partial(int, base=2)
 functools.reduce | Cumulative reduction | reduce(lambda a,b: a+b, [1,2,3])
 functools.singledispatch | Function overloading by type | @singledispatch def process(arg): ...
 @cached_property | Cache property value (3.8+) | @cached_property def area(self): ...
+
+
 18. Advanced / Modern Syntax
 
 query | short explanation max one line | syntax example how to use it
